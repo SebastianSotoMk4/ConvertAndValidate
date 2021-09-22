@@ -7,38 +7,66 @@ Option Explicit On
 Option Strict On
 Module ConvertAndValidate
     Sub Main()
-        Dim userNumber As Integer
-        ' Dim userInput As String
+        Dim userInput As String
         Dim numberReturn As Integer
 
-        ReturnNumber(numberReturn)
-        userNumber = numberReturn
-        Console.WriteLine(userNumber)
+        ReturnNumber(userInput, numberReturn)
+
         Console.WriteLine(numberReturn)
 
         Console.ReadLine()
+
     End Sub
 
-    Function ReturnNumber(ByRef numberReturn As Integer) As Integer
-
-        Dim userString As String
-        Dim integerReturn As Integer
-        userString = Console.ReadLine()
-        Try
-
-            integerReturn = CInt(userString)
-            Console.WriteLine("works")
-            Return integerReturn
-
-        Catch ex As Exception
-            Console.WriteLine("Dont work")
-
-        End Try
+    Function ReturnNumber(ByVal userInput As String, ByRef numberReturn As Integer) As String
+        'Dim numberCheck As Boolean
+        userInput = Console.ReadLine()
 
 
+        If userInput = Nothing Then
+
+            Console.WriteLine("is empty")
+        ElseIf userInput <> Nothing Then
+
+            Try
+                numberReturn = CInt(userInput)
+
+
+            Catch ex As Exception
+
+                Console.WriteLine("must contain a number")
+
+            End Try
+
+
+        End If
 
 
 
+        Return " "
     End Function
+
+    'Private Function ValidateAndConvert(ByVal convertThisString As String, ByRef toThisInteger As Integer) As String
+    '    Dim check As Boolean
+    '    Dim checkNum As Boolean
+
+
+    '    Try
+    '        toThisInteger = CInt(convertThisString)
+
+    '    Catch ex As Exception
+
+    '        If convertThisString = " "  
+    '            Return "Is empty."
+    '        End If
+
+    '    End Try
+
+
+
+
+    '    Return "message$"
+
+    'End Function
 
 End Module
