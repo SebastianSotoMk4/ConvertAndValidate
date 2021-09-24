@@ -9,13 +9,14 @@ Module ConvertAndValidate
     Sub Main()
         Dim userInput As String
         Dim numberReturn As Integer
-        userInput = Console.ReadLine()
-        ReturnNumber(userInput, numberReturn)
+        Do Until userInput = "q"
+            userInput = Console.ReadLine()
+            ReturnNumber(userInput, numberReturn)
 
-        Console.WriteLine(ReturnNumber(userInput, numberReturn))
+            Console.WriteLine(ReturnNumber(userInput, numberReturn))
 
+        Loop
         Console.ReadLine()
-
     End Sub
 
     Private Function ReturnNumber(ByVal userInput As String, ByRef numberReturn As Integer) As String
@@ -28,32 +29,7 @@ Module ConvertAndValidate
             Catch ex As Exception
                 message = "Must contain a number"
             End Try
-
         End If
         Return message
     End Function
-
-    'Private Function ValidateAndConvert(ByVal convertThisString As String, ByRef toThisInteger As Integer) As String
-    '    Dim check As Boolean
-    '    Dim checkNum As Boolean
-
-
-    '    Try
-    '        toThisInteger = CInt(convertThisString)
-
-    '    Catch ex As Exception
-
-    '        If convertThisString = " "  
-    '            Return "Is empty."
-    '        End If
-
-    '    End Try
-
-
-
-
-    '    Return "message$"
-
-    'End Function
-
 End Module
