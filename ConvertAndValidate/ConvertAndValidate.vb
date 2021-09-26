@@ -2,31 +2,32 @@
 'RCET0265
 'Fall 2021
 'Convert and Validate
-'_gitURL
+'https://github.com/SebastianSotoMk4/ConvertAndValidate.git
 Option Explicit On
 Option Strict On
 Module ConvertAndValidate
     Sub Main()
-        Dim userInput As String
-        Dim numberReturn As Integer
-        Do Until userInput = "q"
-            userInput = Console.ReadLine()
-            ReturnNumber(userInput, numberReturn)
+        Dim convertThisString As String
+        Dim toThisInteger As Integer
 
-            Console.WriteLine(ReturnNumber(userInput, numberReturn))
-
-        Loop
+        convertThisString = Console.ReadLine()
+        ReturnNumber(convertThisString, toThisInteger)
+        Console.Write(ReturnNumber(convertThisString, toThisInteger))
         Console.ReadLine()
     End Sub
-
-    Private Function ReturnNumber(ByVal userInput As String, ByRef numberReturn As Integer) As String
+    'Function converts a string to a 32-bit integer
+    Private Function ReturnNumber(ByVal convertThisString As String, ByRef toThisInteger As Integer) As String
         Dim message As String
-        If userInput = Nothing Then
+
+        If convertThisString = Nothing Then
+            'If nothing is entered then "is empty" is returned
             message = "Is empty"
-        ElseIf userInput <> Nothing Then
+        ElseIf convertThisString <> Nothing Then
             Try
-                numberReturn = CInt(userInput)
+                'Function returns an empty string if success
+                toThisInteger = CInt(convertThisString)
             Catch ex As Exception
+                'If string to be converted does not contain a number "must contain a number" is returned 
                 message = "Must contain a number"
             End Try
         End If
