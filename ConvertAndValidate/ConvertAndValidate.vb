@@ -11,7 +11,6 @@ Module ConvertAndValidate
         Dim toThisInteger As Integer
 
         convertThisString = Console.ReadLine()
-        ReturnNumber(convertThisString, toThisInteger)
         Console.Write(ReturnNumber(convertThisString, toThisInteger))
         Console.ReadLine()
     End Sub
